@@ -89,3 +89,8 @@ Umkehrung gilt: zu jeder Primzahlpotenz gibt es einen Körper und das zugehörig
 Es gibt aber auch endliche projektive Ebenen auf denen Desargues nicht gilt.
 
 Numerisches Prüfen dieser Vermutung sehr aufwendig, gewisse Ordnungen können mittels Sätzen ausgeschlossen werden.
+
+## Fernpunkte
+
+- Fernpunkt der Schnittpunkt paralleler Geraden, welcher wirklich im Unendlichen ist-
+- Fluchtpunkt ist das Bild des Fernpunktes in dre Projektion.
