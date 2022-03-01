@@ -67,7 +67,7 @@ Vektorraum über Quaternionen ist ein Beispiel eines Projektiven Raumes mit Desa
   - endlich -> auf jeder Geraden liegen gleich viele Punkte
   - `Ordnung = (# Punkte auf einer Geraden) -1`
   - Minimalmodell (siehe Vorlesungsbild) mit `7` Elementen und Ordnung `2`.
-
+  - Anwendung in Kodierungstheorie
 - Vermutung: Die Ordnung einer endlichen projektiven Ebene ist eine Primzahlpotenz 
 
 - Umkehrung gilt: zu jeder Primzahlpotenz gibt es einen Körper und das zugehörige Vektorraummodell ist eine Projektive Ebene mit dieser Ordnung.
