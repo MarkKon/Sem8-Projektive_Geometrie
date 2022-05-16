@@ -1,0 +1,105 @@
+\documentclass[11pt]{article}
+\usepackage{ {util/personalmacros} }
+\usepackage{tikz-cd}
+%\usetikzlibrary{arrows,calc, angles ,patterns}
+
+\title{Lecture Notes} 
+
+\author{Konstantin Mark\\
+Projektive Geometrie\\ 
+\textsc{TU Wien}
+}
+
+
+
+\begin{document}
+\maketitle
+
+\begin{definition}
+Sei $g$ eine Gerade, $Z$ ein Punkt mit $Z\notin g$.. Die Abbildung \begin{equation*}
+    p: \left\{\begin{array}{ccc}
+         \{\text{Geradenbüschel von } Z\}&\to &g  \\
+         x&\mapsto &x\cap g =:X 
+    \end{array}\right.
+\end{equation*}
+heißt Perspektivität.
+!Abbildung 9-1!
+\end{definition}
+\begin{definition}
+Analog heißt auch die Abbildung 
+\begin{equation*}
+    p: \left\{\begin{array}{ccc}
+         g&\to &\{\text{Geradenbüschel von } Z\}  \\
+         X&\mapsto &X\lor Z =:x 
+    \end{array}\right.
+\end{equation*} Perspektivität.
+\end{definition}
+\begin{remark}
+!Abbildung 9-2!
+\end{remark}
+\begin{definition}
+Hintereinanderausführungen von Perspektivitäten heißen Projektivitäten.
+\end{definition}
+\begin{definition}
+eine projektive Transformation $\kappa$ einer Fixpunkthyperebene (auch Achse genannt) heißt perspektive Kollineation. Es werden zwei Fälle unterschieden:
+\begin{itemize}
+    \item Gilt $Z\in H$, so heißt $\kappa$ Elation.
+    \item Gilt $Z\not\in H$ so heißt $\kappa$ Homologie
+\end{itemize}
+\end{definition}
+\begin{example}(Analytische Beschreibung der perspektiven Kollineation
+\begin{enumerate}
+    \item[(Homologien)] Sei $z, u\in \mathbb R^{n+1}\backslash \{0\}, \langle z,u\rangle\neq 0$.. Sei $c\in \mathbb R$. Betrachte die lineare Abbildung
+    \begin{equation*}
+    f: \left\{
+    \begin{array}{ccc}
+         \mathbb R^{n+1}& \to &\mathbb R^{n+1} \\
+         x&\mapsto &x+(c-1)\frac{\langle x, u\rangle}{\langle z,u\rangle}z
+    \end{array}\right.
+    \end{equation*} und definiere die dazu zugehörige projektive Abbildung 
+    \begin{equation*}
+        \kappa: \left\{
+        \begin{array}{ccc}
+             P^n\backslash P(\ker f)&\to&P^n\\
+             {[x]}&\to &\kappa([x]) = [f(x)] 
+        \end{array}\right.
+    \end{equation*}
+    Sei $H:= \{[x]\in P^n|\langle x,u\rangle = 0\}$. Es gilt $\ker f = \{x\in \mathbb R^{n+1}|f(x) = 0\}$. $x\in \ker f$ genau dann wenn $x+(c-1)\frac{\langle x, u\rangle}{\langle z,u\rangle}z$. Es gibt ein $\lambda\in \mathbb R$ mit $x = \lambda z$ und $0 = f(\lambda z) = \lambda c z$
+    \begin{itemize}
+        \item Fall $c = 0$: Es gilt $\lambda\in \mathbb R$ und damit $f(\lambda z = f(x) = 0$ und $[z] = \ker f$.
+        \item Fall $c \neq 0$: $\lambda = 0\Rightarrow x = 0\Rightarrow \ker f = \{0\}$ und $f$ ist bijektiv und $\kappa$ eine projektive Transformation. 
+    \end{itemize}
+    Sei $Y = [y] \in H$. Dann gilt $\langle y, u\rangle = 0$ und $\f(y) = y+ (c-1)\frac{\langle y, u\rangle}{\langle z, u\rangle}z = y$ und wegen $Y = \kappa(Y)$ ist $H$ eine Fixpunkthyperebene (Achse).\\
+    $\kappa(X)\in (Z\lor X)$
+    \begin{enumerate}
+        \item Fall $c=0$: \begin{equation*}
+            \langle f(x), u\rangle = \left\langle x- \frac{\langle x, u\rangle}{\langle z,u\rangle}z, u \right\rangle= \langle x,u\rangle - \frac{\langle x, u\rangle}{\langle z,u\rangle}\langle z,u\rangle = 0
+        \end{equation*}
+        also $\kappa (X) \in H$. Insbesondere gilt $\kappa\circ \kappa = \kappa$.
+        \item Fall $c\neq 0$:
+            \begin{equation*}
+                f(z) = z+(c-1)\frac{\langle z, u\rangle}{\langle z, u\rangle}
+            \end{equation*} und damit $[f(z)] = [z]$. Es ist also $Z$ ein Fixpunkt.
+            \end{enumerate}
+    Es 
+\end{enumerate}
+!Abbildung 9-4!
+\end{example}
+\begin{remark}
+Eine perspektivische Kollineation kann involutorisch sein. Eine solche Abbildung heißt projektive Spiegelung. $\kappa|_S$ ist eine Autoprojektivität und sogar Involution: $\mathrm{DV}(X, \kappa(X), Z, F) = -1$. 
+\\
+!Abbildung 9-5!
+\\
+Bei einer Affinspiegelung sind Abstand von $X$ und $\kappa(X)$ zu $H$ gleich
+\end{remark}
+\begin{remark}
+Ist in $\mathrm{DV}(X, \kappa(X), Z, U) = -1$ der Punkt $U$ ein Fernpunkt, so ist $M$ der Mittelpunkt von $XY$. Insbesondere ist, falls $Z$ der Fernpunkt der rothogonalen Richtung zu $H$ ist die Spiegelung.
+!Abbildung 9-6!
+\end{remark}
+\begin{remark}
+Ist die Achse einer Spiegelung eine Fernhyperebene, so ist die Spiegelung eine Punktspiegelung !Abbildung 9-7!
+\end{remark}
+\begin{remark}
+Nachdem $\mathrm{DV}(X,\kappa(X),Z,F) = -1$ ist, wird $\kappa$ auch harmonische Spiegelung (oder harmonische Involution) genannt.
+\end{remark}
+\end{document}
