@@ -1,0 +1,69 @@
+\documentclass[11pt]{article}
+\usepackage{ {util/personalmacros} }
+\usepackage{tikz-cd}
+%\usetikzlibrary{arrows,calc, angles ,patterns}
+
+\title{Lecture Notes} 
+
+\author{Konstantin Mark\\
+Projektive Geometrie\\ 
+\textsc{TU Wien}
+}
+
+
+
+\begin{document}
+\maketitle
+
+\subsection{Quadriken}
+
+
+\begin{definition}
+Sei $A\in \mathbb R^{(n+1)\times(n+1)}\backslash\{0\}$. Die Punktmenge $Q= \{[x]\in P^n|x^tAx = 0$ heißt \textit{Quadrik} oder \textit{Hyperfläche 2. Ordnung}.
+\end{definition}
+\begin{remark}
+Für $n=2$ ergeben sich Kegelschnitt. Ohne Einschränkung kann $A$ symmetrisch gewählt werden. $\lambda A$ beschreibt den gleichen Kegelschnitt wie $A$, sofern $\lambda \neq 0$. 
+\end{remark}
+\begin{remark}
+Sei $T\in \mathbb R^{(n+1)\times(n+1)}$ regulär. Dann beschreibt $T$ eine projektive Transformation $\kappa$. $\kappa(Q)$ ist wieder eine Quadrik mit Matrix $T^{-T}AT^{-1}$
+\end{remark}
+\begin{definition}
+$[b]\in Q$ heißt \textit{regulär} wenn $b^TA\neq 0$, ansonsten \textit{singulär}.
+\end{definition}
+\begin{definition}
+Eine Quadrik heißt \textit{regulär}, wenn ihre darstellende Matrix regulär ist. Ansonsten heißt $Q$ \textit{singulär} oder \textit{degeneriert}. 
+\end{definition}
+\begin{remark}
+Die Punkte einer regulären Quadrik sind regulär.
+\end{remark}
+\begin{example}
+\begin{itemize}
+    \item $x^2+y^2-z^2 = 1$, ein einschaliges Drehhyperboloid.!Abbildung 10-1!. Homogenisieren funktioniert wie gewohnt:
+    \begin{equation*}
+        \left(\frac{x_1}{x_0}\right)^2 + \left(\frac{x_2}{x_0}\right)^2 - \left(\frac{x_3}{x_0}\right)^2 = 1
+    \end{equation*}
+    beziehungsweise \begin{equation*}
+        -x_0^2 + x_1^2 + x_2^2-x_3^2 = 0
+    \end{equation*}
+    und in Matrixform 
+    \begin{equation*}
+        x^T\left(\begin{array}{cccc}
+             -1  \\
+             &1\\
+             &&1\\
+             &&&-1
+        \end{array}\right)x.
+    \end{equation*}
+    \item $x^2+y^2-z^2 = 0$ ein Drehkegel mit Matrixform \begin{equation*}
+        x^T\left(\begin{array}{cccc}
+             0  \\
+             &1\\
+             &&1\\
+             &&&-1
+        \end{array}\right)x.
+    \end{equation*} woran man erkennt, dass der Kegel nicht regulär ist. Der Punkt $[(1,0,0,0)^T]$ ist singulär, alle anderen Punkte sind regulär.
+\end{itemize}
+\end{example}
+
+
+\end{document}
