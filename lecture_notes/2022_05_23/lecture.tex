@@ -1,0 +1,152 @@
+\documentclass[11pt]{article}
+\usepackage{ {util/personalmacros} }
+\usepackage{tikz-cd}
+%\usetikzlibrary{arrows,calc, angles ,patterns}
+
+\title{Lecture Notes} 
+
+\author{Konstantin Mark\\
+Projektive Geometrie\\ 
+\textsc{TU Wien}
+}
+
+
+
+\begin{document}
+\maketitle
+
+\begin{theorem}
+Der Schnitt einer Geraden mit einer Quadrik hat genau $0,1,2$ oder unendlich viele Schnittpunkte.  
+\end{theorem}
+\begin{definition}
+Eine Gerade $g$ heißt\begin{itemize}
+    \item \textit{Passante} wenn $\#|g\cap Q|= 0$
+    \item \textit{Tangente} wenn $\#|g\cap Q| = 1$
+    \item \textit{Sekante} wenn $\#|g\cap Q|=2$
+    \item \textit{Tangente }(oder in $P^3$ auch \textit{Erzeugende}) wenn $\#|g\cap Q| = 2$.
+\end{itemize}
+!Abbildung 11-1!
+\end{definition}
+\begin{theorem}\label{thm:tang}
+Sei $Q$ eine Quadrik, die von $A$ dargestellt wird und sei $[a]\lor [b]$ eine Gerade. Dann ist $[a]\lor [b]$ genau dann eine Tangente wenn \begin{equation}\label{eq:tang}
+    (a^TAa)(b^TAb) - (a^TAb)^2 = 0.
+\end{equation}
+\end{theorem}
+\begin{proof}
+Es gilt \begin{equation}\label{eq:schnitt}
+    \lambda^2a^TAa + 2\lambda\mu a^Tb + \mu^2b^TAb= 0
+\end{equation}
+\begin{itemize}
+    \item["$\Leftarrow$"] Sei $[a]\lor[b]$ eine Tangente. 
+        \begin{enumerate}
+            \item Fall $[a]\lor[b]\subseteq Q$. 
+            \begin{equation*}
+                [\lambda a +  \mu b]\in Q \Leftrightarrow \lambda^2\underbrace{a^TAa}_{=0} + 2\lambda\mu a^Tb + \mu^2\underbrace{b^TAb}_{=0} = 0 \forall \lambda,\mu \in \mathbb R.
+            \end{equation*}
+            Insbesondere gilt $a^TAb = 0$ und \eqref{eq:tang} ist erfüllt.
+            \item $[a]\lor[b]\not\subseteq Q$. Ohne Einschränkung der Allgemeinheit sei $[a]\notin Q$. Für einen Schnittpunkt $[\lambda a + \mu b]$ muss daher $\mu\neq 0$ gelten. Aus (\ref{eq:schnitt}) foltgt \begin{equation*}
+                \frac{\lambda^2}{\mu^2}a^TAa + 2\frac\lambda\mu a^Tb + b^TAb= 0
+            \end{equation*}
+            Dies ist eine quadratische Gleichung in $\frac\lambda\mu$. Diese Gleichung hat genau eine Nullstelle weil $[a]\lor[b]$ genau einen Schnittpunkt mit $Q$ hat. Die Diskriminante $(2a^TAa)^2-4(a^TAa)(b^TAb)$ ist also null und \eqref{eq:tang} ist erfüllt.
+        \end{enumerate}
+    \item["$\Rightarrow$"]
+        \begin{enumerate}
+            \item Ist \eqref{eq:schnitt} für alle $\lambda,\mu$ erfüllt, so gilt $[a]\lor[b]\subseteq Q$.
+            \item Die Diskriminante von \eqref{eq:schnitt} verschwindet und es gibt genau einen Schnittpunkt.
+        \end{enumerate}
+\end{itemize}
+\end{proof}
+
+\begin{definition}
+Sei $Q$ eine Quadrik mit Matrix $A$. Sei $[b]$ ein regulärer Punkt von $Q$. Dann heißt $\{[x]\in P^n| b^TAx = 0\}$ die \textit{Tangentialhyperebene}. Gilt \begin{itemize}
+    \item $n=2$ so heißt die Tangentialhyperebene \textit{Tangente},
+    \item $n=3$ so heißt sie Tangentialhyperebene \textit{Tangentialebene}.
+\end{itemize}
+Der Punkt $[b]$ heißt \textit{Berührpunkt}.
+!Abbilung 11-2!
+\end{definition}
+
+\begin{theorem}
+Die Tangentialhyperebene besteht aus allen Tangenten durch den Berührpunkt $[b]$.
+
+\end{theorem}
+\begin{proof}
+Sei $[b]\lor [x]$ eine Tangente.  Satz \ref{thm:tang} gibt die Gleichung \begin{equation*}
+    \underbrace{(b^TAb)}_{=0}(x^TAx) - (b^TAx)^2 = 0
+\end{equation*} und es gilt $b^TAx = 0$. $[x]$ liegt also in der Tangentialhyperebene.
+\end{proof}
+
+\begin{definition}
+Sei $Q$ eine Quadrik mit Matrix $A$. Sei $[x]\in P^n$ aber kein singulärer Punkt der Quadrik. Die Menge \begin{equation*}
+    [x]^\pi = \{[y]\in P^n| x^TAy = 0\}
+\end{equation*} die \textit{Polarhyperebene zum Pol $[x]$} oder \textit{Polare zum Pol $[x]$}.
+\end{definition}
+\begin{remark}
+Sei $Q$ eine reguläre Quadrik mit Matrix $A$. Sei $u$ homogene Hyperebenenkoordinaten einer Hyperebene $H$. $[A^-1u] =: H^\pi$. Die Polare von $H^\pi$ ist $u^TA^{-1}A = u^T$. $H^\pi$ ist der Pol zu $H$.
+\end{remark}
+\begin{definition}
+$\mathbb R^n$ ist die \textit{direkte Summe} von zwei Untervektorräumen $U,V$ genau dann wenn $\forall x\in \mathbb R^n \exists!u\in U, \exists! v\in V$ mit $x = u+v$. Notation $\mathbb R^n = U\oplus V$
+\end{definition}
+\begin{definition}
+Sei $M\subseteq \mathbb R^n$ eine Menge. \begin{equation*}
+    M^\perp := \{x\in \mathbb R^n|\langle x,m\rangle = 0, \forall m\in M\}
+\end{equation*}
+heißt orthogonales Komplement
+\end{definition}
+\begin{lemma}
+$M^\perp$ ist ein Untervektorraum.
+\end{lemma}
+\begin{proof}
+Übung
+\end{proof}
+
+\begin{theorem}
+Sei $A\in \mathbb R^{(n+1)\times(n+1)}\backslash \{0\}, x\in \mathbb R^{n+1}$ mit $x^TAx \neq 0$. Dann ist \begin{equation*}
+    \mathbb R^{n+1} = [x] \oplus \{x^TA\}^\perp.
+\end{equation*}
+\end{theorem}
+\begin{proof}
+\begin{itemize}
+    \item Existenz: Sei $y\in \mathbb R^{n+1}$. Sei $\lambda_y := \frac{x^TAy}{x^TAx}$, $z:= y-\lambda_y x$. 
+    \begin{equation*}
+        \langle A^Tx, z\rangle = \langle A^Tx, y-\lambda_y x\rangle = x^TAy - \lambda_yx^TAx = x^TAy - \frac{x^TAy}{x^TAx}x^TAx = 0
+    \end{equation*}
+    Es gilt also $z\in (A^Tx)^\perp$ und $y = \underbrace{\lambda_y x}_{\in [x]} +\underbrace{z}_{\in \{x^TA\}^T}$. 
+    \item Eindeutigkeit. Sei $y = x_1+y_1 = x_2 + y_2$ mit $x_1, x_2\in [x]$ und $y_1,y_2\in \{x^TA\}^\perp$. Nun existieren $\lambda_1,\lambda_2\in \mathbb R$ mit $x_1 = \lambda_1x, x_2 = \lambda_2 x$ und es gilt $\lambda_1 x +y_1 + \lambda_2 x + y_2$. Wegen \begin{equation*}
+        \underbrace{\lambda_1 x^TAx}_{\neq 0} + \underbrace{x^TAy_1}_{= 0} = \underbrace{\lambda_2x^TAx}_{\neq 0} + \underbrace{x^TAy_2}_{=0}.
+    \end{equation*}
+    gilt $\lambda_1 = \lambda_2$ und damit $x_1 = x_2, y_1 = y_2$.
+\end{itemize}
+\end{proof}
+\begin{remark}
+Projektive Spiegelung $\kappa = [f]$.
+\begin{equation*}
+    f(x) = x + (c-1) \frac{\langle x,u\rangle}{\langle z, u\rangle}z.
+\end{equation*}
+Für Spiegelung, dh. $\kappa$ ist involutorisch gilt $c = -1$.
+\end{remark}
+
+\begin{theorem}
+Sei $Q$ eine Quadrik und $Z = [z]\in P^n\backslash Q$. Sei $\kappa$ die projektive Spiegelung mit Zentrum $Z$ und Achse $Z^\pi$. Dann gilt $\kappa(Q) = Q$. 
+\end{theorem}
+\begin{proof}
+\begin{equation*}
+    f(x) = x- 2 \frac{\langle x, z^TA\rangle}{\langle z, z^TA\rangle}z
+\end{equation*}
+wegen $[z]\notin Q$ gilt $\mathbb R^{n+1} = [z]\oplus\{z^TA\}^\perp$. Zu $x\in \mathbb R^{n+1}$ beliebig gibt es also $x_1\in [z], x_2\in \{z^TA\}^\perp$ mit $x = x_1+x_2$. Wegen $x_1 = \lambda z$ für ein $\lambda\in \mathbb R$, gilt $x_1^TAx_2 = \lambda z^TAx_2 = 0$ und \begin{equation}\label{eq:to}
+    x^TAx = (x_1+x_2)^TA(x_1+x_2) = x_1^TAx_1 + 2\underbrace{x_1^TAx_2}_{=0} + x_2^TAx_2 = x_1^TAx_1 + x_2Ax_2.
+\end{equation}
+Damit gilt nun \begin{equation*}
+    f(x) = f(x_1+x_2) = f(x_1) + f(x_2) =
+       x_1- 2 \frac{\langle x_1, z^TA\rangle}{\langle z, z^TA\rangle}z + x_2- 2 \underbrace{\frac{\langle x_2, z^TA\rangle}{\langele z, z^TA\rangle}}_{=0}z =
+       x_1 + x_2 - 2\lambda z = x_2-x_1.
+\end{equation*}
+Dies führt zu \begin{equation*}
+    f(x)^TAf(x) = (x_2-x_1)^TA(x_2-x_1) = x_2^TAx_2 - 2 \underbrace{x_2^TAx_1}_{= 0} + x_1Ax_1 \overset{\eqref{eq:to}}{=} x^TAx.
+\end{equation*}
+Schlussendlich gilt also \begin{equation*}
+    x^TAx = 0\Leftrightarrow f(x)^TAf(x) = 0\Leftrightarrow X\in Q\Leftrightarrow X\in \kappa(Q)
+\end{equation*}
+\end{proof}
+
+\end{document}

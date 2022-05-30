@@ -1,0 +1,90 @@
+\documentclass[11pt]{article}
+\usepackage{ {util/personalmacros} }
+\usepackage{tikz-cd}
+%\usetikzlibrary{arrows,calc, angles ,patterns}
+
+\title{Lecture Notes} 
+
+\author{Konstantin Mark\\
+Projektive Geometrie\\ 
+\textsc{TU Wien}
+}
+
+
+
+\begin{document}
+\maketitle
+
+\begin{definition}
+Sei $Q$ eine Quadrik, $Z\in P^n\backslash Q$. Dann heißt die Menge aller Tangenten durch $Z$ an $Q$ Tangentialkegel. !Abbildung 12-1!
+\end{definition}
+
+\begin{theorem}
+Der Tangentialkegel ist $\{Z\lor T | T\in Q\cap Z^\pi$
+\end{theorem}
+\begin{proof}
+\begin{enumerate}
+    \item ["$\Rightarrow$"] Sei $g$ eine Tangente durch $Z$. $g\cap Q = T$ weil $Z\notin Q$. Es bleibt $T\in Z^\pi$ zu zeigen. Sei $[t] = T, [z] = Z$. $T\lor Z$ ist Tangente und es gilt \begin{equation*}
+        \underbrace{(t^TAt)}_{=0}(z^TAz) - (t^TAz)^2 = 0
+    \end{equation*}
+    Daraus folgt $t^TAz = 0$ und es gilt $T\in Z^\pi$.
+    \item ["$\Leftarrow$"] Sei $T\in Q\cap Z^\pi$. Wegen $[t]= T\in Z^\pi$ gilt $t^TAz = 0$. Wegen $T\in Q$ gilt $t^TAt=0$. Zusammen gilt \begin{equation*}
+        (t^TAt)(z^TAz) - (t^TAz)^2 = 0
+    \end{equation*} und $T\lor Z$ ist eine Tangente.
+\end{enumerate}
+\end{proof}
+\begin{remark}
+!Abbildung 12-3!
+\end{remark}
+\begin{remark}
+Foto einer Quadrik ist ein Kegelschnitt
+\end{remark}
+
+\begin{definition}
+Sei $Q$ eine Quadrik, $X,Y\in P^n$. $X$ heißt \textit{konjugiert zu} $Y$ wenn $x^TAy = 0$.
+\end{definition}
+\begin{remark}
+$X,Y$ sind konjugiert genau dann wenn $X\in Y^\pi$ bzw. $Y\in X^\pi$.
+\end{remark}
+
+\begin{remark}
+$X$ ist zu sich selbst konjugiert genau dann wenn $X\in Q$.
+\end{remark}
+
+\begin{theorem}
+$X\neq Y\in P^n$ mit $(X\lor Y\cap Q = \{P,R\}$. Dann ist $X$ konjugiert zu $Y$ genau dann wenn $\mathrm{DV}(X,Y,P,R) = -1$. !Abbildung 12-4! !Abbildung 12-5!
+\end{theorem}
+\begin{proof}
+Betrachte projektive Spiegelung $\kappa$ mit Zentrum $X$ und Achse $X^\pi$. Es gilt also $\kappa(P) = R, \kappa(R) = P$. Sei $W:= X^\pi\cap (X\lor Y)$. Es gilt \begin{equation*}
+    X,Y \text{ konjugiert} \Longleftrightarrow Y\in X^\pi \Longleftrightarrow Y = W \Longleftrightarrow \mathrm{DV}(X,Y,P,R) = -1
+\end{equation*}
+\end{proof}
+\begin{theorem}
+Sei $U\subseteq P^n$ ein Unterraum. Dann gilt $U\subseteq Q$ genau dann wenn je zwei Punkte von $U$ konjugiert sind
+\end{theorem}
+\begin{proof}
+\begin{enumerate}
+    \item ["$\Leftarrow$"] Sei $U\subseteq Q$. Seien $X,Y\in U$
+       \begin{itemize}
+           \item 1. Fall $X= Y$: Dann liegt $X\in Q$ und ist selbstkonjugiert.
+           \item 2. Fall $X\neq Y$: Dann  liegt $X\lor Y \subseteq U\subseteq Q$ und $X\lor Y$ ist Tangente. Es gilt also \begin{equation*}
+               \underbrace{x^TAx)}_{=0}\underbrace{(y^TAy)}_{=0} - (x^TAx)^2 = 0
+           \end{equation*}
+           also gilt auch $x^TAy=0$ und $X$ ist konjugiert zu $Y$.
+       \end{itemize}
+   \item ["$\Rightarrow$"] Sind je zwei Punkte aus $U$ konjugiert, so ist jeder Punkt in $U$ selbstkonjugiert und jeder Punkt in $U$ liegt in $Q$.
+\end{enumerate}
+\end{proof}
+\begin{theorem}[Involution konjugierter Punkte]
+Sei $Q$ eine Quadrik und $g$ eine Gerade, die keinen singulären Punkt von $Q$ enthält. Dann ist die Abbildung \begin{equation*}
+    p: \begin{cases}g&\to g\\ X&\mapsto p(X):= g\cap X^\pi\end{cases}
+\end{equation*}
+eine Involution. !Abbildung 12-6!
+\end{theorem}
+\begin{proof}
+\begin{enumerate}
+    \item involutorisch: $p(X)\in X^\pi$ deswegen $p(p(X))\in p(X)^\pi$. $p(X)\in X^\pi$ impliziert aber auch $X\in p(X)^\pi$ und 
+\end{enumerate}
+\end{proof}
+
+\end{document}

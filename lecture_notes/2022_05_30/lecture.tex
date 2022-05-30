@@ -1,0 +1,163 @@
+\documentclass[11pt]{article}
+\usepackage{ {util/personalmacros} }
+\usepackage{tikz-cd}
+%\usetikzlibrary{arrows,calc, angles ,patterns}
+
+\title{Lecture Notes} 
+
+\author{Konstantin Mark\\
+Projektive Geometrie\\ 
+\textsc{TU Wien}
+}
+
+
+
+\begin{document}
+\maketitle
+
+
+\begin{theorem}[Involution konjugierter Punkte]
+Sei $Q$ eine Quadrik und $g$ eine Gerade, die keinen singulären Punkt von $Q$ enthält. Sei weiters für alle $X\in g$ auch $g\not\subseteq X^\pi$. Dann ist die Abbildung \begin{equation*}
+    p: \begin{cases}g&\to g\\ X&\mapsto p(X):= g\cap X^\pi\end{cases}
+\end{equation*}
+eine Involution. !Abbildung 12-6!
+\end{theorem}
+\begin{proof}
+\begin{enumerate}
+    \item involutorisch: siehe letzte Woche
+    \item $p$ ist eine Autoprojektivität. Sei $g\ni[x] = X\neq Y = [y]\in g$. Dann gibt es für alle $[z]=Z\in g$ Skalare $\lambda, \mu$ mit $z= \lambda x + \mu y$. $Z^\pi$ wird durch $z^TA = (\lambda x + \mu y)^TA = \lambda x^T A + \mu y^T A$beschrieben. $Z^\pi$  liegt also im Hyperebenenbüschel, das von $x^TA$ und $y^TA$ aufgespannt wird. Die Abbildung $Z\mapsto Z^\pi$ ist $\DV$-treu. $p(Z)$ ist Schnitt von $Z^\pi$ mit $g$ also auch $\DV$-treu. $Z\mapsto p(Z)$ ist $\DV$-treu, also ist $p$ die Autoprojektivität.
+\end{enumerate}
+\end{proof}
+\begin{remark}
+Fixpunkte der Involution konjugierter Punkte sind die Schnittpunkte mit $Q$. !Abbildung 13-1!\\
+Dual: Involution konjugierter Hyperebenen !Abbildung 13-2!
+\end{remark}
+
+\begin{definition}
+Sei $Q$ eine reguläre Quadrik. Dann heißt der Pol der Fernhyperebene \textit{Mittelpunkt der Quadrik}. !Abbildung 13-3!
+\end{definition}
+\begin{definition}
+Ist der Mittelpunkt einer Quadrik ein Fernpunkt, so heißt sie Paraboloid.
+\end{definition}
+\begin{example}
+Ellipse: Involution konjugierter Durchmesser ist die Involution um den Mittelpunkt.!Abbildung 13-4!
+\end{example}
+\begin{definition}
+Sei $Q$ eine Quadrik, $G\subseteq P^n$ ein Unterraum mit $G\not\subseteq Q$. Dann heißt $G\cap Q=:\tilde Q$ \textit{Quadrik in $G$}.!Abbildung 13-5! Zwei Punkte $X,Y\in G$ heißen \textit{konjugiert bezüglich $\tilde Q$} genau dann wenn $X,Y$ konjugiert bezüglich $Q$.
+\end{definition}
+
+\begin{definition}
+Ein \textit{Polsimplex} in $\tilde Q = Q\cap \underbrace G_{\dim G = k}$ ist eine Menge von Punkten $P_0,\dots, P_k$, die paarweise konjugiert sind und projektiv unabhängig. !Abbildung 13-6!
+\end{definition}
+\begin{theorem}
+Zu jeder Quadrik $Q$ existiert ein Polsimplex. 
+\end{theorem}
+\begin{proof}
+Sei $G\subseteq P^n$ ein Unterraum, $\dim G = k$.
+\begin{enumerate}
+    \item $G\subseteq Q$, wähle Punkte in $G$.
+    \item $G\not\subseteq Q$. Induktion über $k$.\begin{itemize}
+        \item $k=1$: Sei $P_0\in G\backslash Q$, $P_1 = G\cap P_0^\pi$. Dann ist $P_0,P_1$ ein Polsimplex. !Abbildung 13-7!
+        \item $k-1\to k$: $\dim G = k$. Sei $P_k\in G\backslash Q$. Dann gilt $P_k\not\in P_k^\pi$. Sei $H:= P_k^\pi\cap G$. Die Dimensionsformel gibt \begin{equation*}
+            \underbrace{\dim(G)}_{= k} + \underbrace{\dim(P_k^\pi)}_{=n-1} = \dim(\underbrace{P_k^\pi\cap G}_H) + \dim (P_k^\pi\lor G)
+        \end{equation*}
+        Es gilt also \begin{equation*}
+            \underbrace{\dim(P_k^\pi\lor G)}_{=n} = n-1+k-\dim H
+        \end{equation*}
+        und es gilt $\dim H = k-1$. Laut Induktionsvorraussetzung gibt es ein Polsimplex $P_0, \dots, P_{k-1}$ in $H$. Dann ist  $P_0, \dots, P_k$ ein Polsimplex in $G$ weil $P_k$ konjugiert zu allen $P_0, \dots, P_{k-1}$ ist und wegen $P_0\lor \dots\lor P_{k-1}= H$ aber $P_0\lor \dots\lor P_k= G$ und $\dim G > \dim H$ die Punkte   $P_0, \dots, P_k$ projektiv unabhängig sind.
+    \end{itemize}
+\end{enumerate}
+\end{proof}
+\begin{lemma}
+Konjugiertsein ist projektiv invariant
+\end{lemma}
+\begin{proof}
+Seien $X=[x], Y = [y]\in P^n, Q$ eine Quadrik, $\kappa$ projektive Transformation. Sei $T$ eine Matrix, die $\kappa$ darstellt, $A$ eine darstellender Matrix für $Q$. Dann wird $\kappa(Q)$ durch $T^{-T}AT^{-1}$ dargestellt. Weiters gilt $\kappa(X) = [Tx],\kappa(Y) = [Ty]$ und es gilt \begin{equation*}
+    (Tx)^TT^{-T}AT^{-1}(Ty) = 0 \Leftrightarrow x^TT^T T^{-T}AT^{-1}T y = 0 \Leftrightarrow x^T Ay = 0.
+\end{equation*} 
+\end{proof}
+\begin{remark}\label{rem:rank}
+Betrachte eine Quadrik $Q$ und ein Polsimplex $P_0, \dots, P_n$, $\kappa$ eine projektive Transformation mit $\kappa(P_i) = [e_{i+1}]$. Sei $x^TAx = 0$ die Gleichung von $\kappa(Q)$. Dann gilt \begin{equation*}
+    e_i\underbrace{\left(\begin{array}{cccc}
+         a_{00}&  \\
+         &a_{11}&\\
+         &&\ddots\\
+         &&&a_{nn}
+    \end{array}\right)}_A e_j = \left\{\begin{array}{cc}
+        0  &i\neq j\\
+        a_{ii}&i=j 
+    \end{array}\right.
+\end{equation*}
+$A$ ist also eine Diagonalmatrix $\diag (b_0,\dots, b_n)$. Ohne Beschränkung der Allgemeinheit gibt es ein $r$ mit $b_0,\dots, b_{r-1}\neq 0$ (durch Umnummerierung). Analog lässt sich erreichen, dass $b_0,\dots, b_{\ell-1}>0, b_\ell,\dots b_{r-1}<0$. Eventuell durch Multiplikation mit $-1$ kann erreicht werden, dass $\ell \geq r-\ell$, d.h. nicht mehr negative $b_i$ als positive. Nenne diese Matrix $B$. Wende projektive Transformation mit Matrix $S$ an wobei \begin{equation*}
+    S = \left(\begin{array}{cccccc}
+         \sqrt{|b_0|}&  \\
+         &\ddots\\
+         &&\sqrt{|b_{r-1}|}\\
+         &&&1\\
+         &&&&\ddots\\
+         &&&&&1
+    \end{array}\right) = \diag (\sqrt{|b_0|}, \dots \sqrt{|b_{r-1}|}, 1,\dots, 1)
+\end{equation*}
+Wegen \begin{equation*}
+    S^{-1} = \left(\begin{array}{cccccc}
+         \frac1{\sqrt{|b_0|}}&  \\
+         &\ddots\\
+         &&\frac1{\sqrt{|b_{r-1}|}}\\
+         &&&1\\
+         &&&&\ddots\\
+         &&&&&1
+    \end{array}\right) = S^{-T}
+\end{equation*}
+Dadurch ergibt sich \begin{equation*}
+    C:=S^{-T}BS^{-1} = \diag (\overbrace{\underbrace{1,\dots, 1}_\ell, \underbrace{-1,\dots, -1}_{r-\ell}}^r, 0,\dots, 0).
+\end{equation*}
+Es gibt also für jede Quadrik $Q$ eine projektive Transformation, welche $Q$ auf eine Quadrik mit Matrix $C$ abbildet.
+\end{remark}
+\begin{remark}
+Polsimplizes können mit projektiven Transformationen aufeinander abgebildet werden.
+\end{remark}
+\begin{remark}
+Das $r$ aus Bemerkung \ref{rem:rank} ist projektiv invariant mit $Q$ verbunden.
+\end{remark}
+\begin{definition}
+$r$ aus Bemerkung \ref{rem:rank} heißt \textit{Rang von $Q$}.
+\end{definition}
+\begin{remark}
+$Q$ ist regulär genau dann wenn der Rang $n+1$ ist.
+\end{remark}
+\begin{theorem}
+Sei $Q$ eine Quadrik mit Gleichung \begin{equation}\label{eq:dimquad}
+    x_0^2 + \dots + x_{\ell-1}^2 - x_\ell^2 - \dots  - x_{r-1}^2 = 0.
+\end{equation}
+Dann gilt: \begin{enumerate}
+    \item Die maximale Dimension eines Unterraums der leeren Durchschnitt mit $Q$ hat ist $\ell-1$.
+    \item  Die maximale Dimension eines Unterraums in $Q$ liegt ist $n-\ell$.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+\begin{equation*}
+    G:= \{[(x_0,\dots, x_{\ell-1}, 0,\dots,0)]|(x_0,\dots, x_{\ell-1}\in \mathbb R^{\ell}\backslash\{0\}\}
+\end{equation*} ist ein projektiver Unterraum der Dimension $\ell-1$. Betrachte $G\cap Q$. Sei $X= [x]\in G$. Setze $x$ in \eqref{eq:dimquad}, so gilt 
+\begin{equation*}
+     x_0^2 + \dots + x_{\ell-1}^2 > 0.
+\end{equation*} und $G\cap Q\neq \emptyset$. Ob $G$ maximaler Dimension ist mit $G\cap Q = \emptyset$ wissen wir noch nicht.
+
+\begin{equation*}
+    H= \{[(\underbrace{\overbrace{x_\ell,\dots, x_{r-1}}^{r-\ell},\overbrace{ 0 ,\dots, 0}^{2\ell-r}}_{\ell}, \overbrace{x_\ell,\dots, x_n}^{n-\ell +1})]| (x_\ell, \dots, x_n\in \mathbb R^{n-\ell+1}\backslash \{0\}\}
+\end{equation*} ein Unterraum der Dimension $\dim H = n-\ell$. Sei $[x]\in H$, so gilt \begin{equation*}
+    x_\ell^2 + x_{\ell+1}^2 + \dots + x_{r-1}^2 + 0 + \dots  + 0 - x_\ell^2 - \dots - x_{r-1}^2 + 0 x_r^2 + \dots x_n^2 = 0.
+\end{equation*}
+Dieser Raum liegt also in $Q$. Ob $H$ maximaler Dimension mit $H\subseteq Q$ ist wissen wir auch noch nicht.\\
+Angenommen es gibt ein $H'\subseteq P^n$ mit $H'\subseteq Q$ mit $\dim H' = n-\ell + 1$. Der Dimensionssatz zeigt \begin{equation*}
+\begin{split}
+    \dim G &+ \dim H' = \dim (G\cap H') + \dim (G\lor H')\\
+    \ell-1 &+n-\ell + 1  =  \dim (G\cap H') + \dim (G\lor H')
+\end{split}
+\end{equation*}
+ und es gilt \begin{equation*}
+     n\geq \dim(G\lor H') = \underbrace{\ell-1+n-\ell + 1}_n - \dim(G\cap H')
+ \end{equation*}
+ oder $0\leq \dim(G\cap H')$ womit $G\cap H'$ nicht leer im Widerspruch zu $H'\subseteq Q$ und $G\cap Q = \emptyset$. Analog zeigt man die Maximalität von $G$.
+\end{proof}
+
+\end{document}
