@@ -1,0 +1,114 @@
+\documentclass[11pt]{article}
+\usepackage{ {util/personalmacros} }
+\usepackage{tikz-cd}
+%\usetikzlibrary{arrows,calc, angles ,patterns}
+
+\title{Lecture Notes} 
+
+\author{Konstantin Mark\\
+Projektive Geometrie\\ 
+\textsc{TU Wien}
+}
+
+
+
+\begin{document}
+\maketitle
+
+\section{Quadriken}
+
+
+\begin{definition}
+    Sei $A\in \mathbb R^{(n+1)\times(n+1)}\backslash\{0\}$. Die Punktmenge $Q= \{[x]\in P^n|x^tAx = 0$ heißt \textit{Quadrik} oder \textit{Hyperfläche 2. Ordnung}.
+\end{definition}
+
+\begin{remark}
+    Für $n=2$ ergeben sich Kegelschnitt. Ohne Einschränkung kann $A$ symmetrisch gewählt werden. $\lambda A$ beschreibt den gleichen Kegelschnitt wie $A$, sofern $\lambda \neq 0$. 
+\end{remark}
+
+\begin{remark}
+    Sei $T\in \mathbb R^{(n+1)\times(n+1)}$ regulär. Dann beschreibt $T$ eine projektive Transformation $\kappa$. $\kappa(Q)$ ist wieder eine Quadrik mit Matrix $T^{-T}AT^{-1}$
+\end{remark}
+
+\begin{definition}
+    $[b]\in Q$ heißt \textit{regulär} wenn $b^TA\neq 0$, ansonsten \textit{singulär}.
+\end{definition}
+
+\begin{definition}
+    Eine Quadrik heißt \textit{regulär}, wenn ihre darstellende Matrix regulär ist. Ansonsten heißt $Q$ \textit{singulär} oder \textit{degeneriert}. 
+\end{definition}
+
+\begin{remark}
+    Die Punkte einer regulären Quadrik sind regulär.
+\end{remark}
+
+\begin{example}
+    \begin{itemize}
+        \item $x^2+y^2-z^2 = 1$, ein einschaliges Drehhyperboloid.!Abbildung 10-1!. Homogenisieren funktioniert wie gewohnt:
+            \begin{equation*}
+                \left(\frac{x_1}{x_0}\right)^2 + \left(\frac{x_2}{x_0}\right)^2 - \left(\frac{x_3}{x_0}\right)^2 = 1
+            \end{equation*}
+            beziehungsweise 
+            \begin{equation*}
+                -x_0^2 + x_1^2 + x_2^2-x_3^2 = 0
+            \end{equation*}
+            und in Matrixform 
+            \begin{equation*}
+                x^T\left(
+                \begin{array}{cccc}
+                     -1  \\
+                     &1\\
+                     &&1\\
+                     &&&-1
+                \end{array}
+                \right)x.
+            \end{equation*}
+        \item $x^2+y^2-z^2 = 0$ ein Drehkegel mit Matrixform 
+            \begin{equation*}
+                x^T\left(
+                \begin{array}{cccc}
+                     0  \\
+                     &1\\
+                     &&1\\
+                     &&&-1
+                \end{array}\right)x.
+            \end{equation*} woran man erkennt, dass der Kegel nicht regulär ist. Der Punkt $[(1,0,0,0)^T]$ ist singulär, alle anderen Punkte sind regulär.
+    \end{itemize}
+\end{example}
+
+\begin{theorem}
+    Regularität bzw. Singularität eines Punktes ist invariant unter projektiven Transformationen.
+\end{theorem}
+
+\begin{proof}
+    Sei $[b]\in Q$ ein regulärer Punkt, also $b^TA\neq 0$ !Abbildung 10-2!. Es gilt 
+    \begin{equation*}
+        (Tb)^T\cdot(T^{-T}AT^{-1}) = b^TAT^{-1}\neq 0.
+    \end{equation*}
+\end{proof}
+
+\subsection{Schnitt einer Quadrik mit einer Geraden}
+
+Seien $[a]\neq [b]\ini P^n$. Dann bedeutet $([a]\lor [b])\cap Q$ genau
+\begin{align}
+   (\lambda a + \mu b)^T\cdot A\cdot (\lambda a+\mu b) = 0&\Leftrightarrow\\
+    \lambda^2 a^TAa + \lambda \mu a^TAb + \underbrace{\mu\lambda b^TA\cdot a}_{= a^TA^Tb = a^TAb} + \mu^2 b^TAb = 0&\Leftrightarrow\\
+    \lambda^2 a^TA + 2\lambda \mu a^TAb + \mu^2 b^TAb = 0& \label{schnittbedingung}
+\end{align}
+
+\begin{example}Betrachte die Abbildung mit Matrix 
+    $$\left(\begin{array}{ccc}
+         -1\\&1\\&&1 
+    \end{array}\right).$$ Der Schnitt dieses Kreises mit Ferngerade ist leer. (keine reellen Schnittpunkte) !Abbildung 10-3!
+\end{example}
+\begin{example}
+    Sei $[a]\neq [b]\in Q, [\lambda a+ \mu b]\in Q$ für $\lambda,\mu \in \mathbb R\backslash\{0\}$. (\ref{schnittbedingung}) impliziert 
+    \begin{align*}
+        \underbrace{\lambda^2a^TAa}_{=0} +2\lambda\mu a^TAb + \underbrace{\mu^2b^TAb}_{=0} = 0\\
+        \Rightarrow  \underbrace{\lambda \mu }_{=0}a^TAb = 0 
+    \end{align*}
+    also $a^TAb=0$ und (\ref{schnittbedingung}) verschwindet identisch.\\
+    Es gilt also $[\lambda a + \mu b]\in Q \forall (\lambda,\mu)\neq (0,0)$ und damit $[a]\lor [b] \in Q$. Liegen also $3$ verschiedene Punkte einer Geraden in $Q$, so liegt die gesamte Gerade darin.
+\end{example}
+
+\end{document}
