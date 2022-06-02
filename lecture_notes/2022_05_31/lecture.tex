@@ -1,0 +1,84 @@
+\documentclass[11pt]{article}
+\usepackage{ {util/personalmacros} }
+\usepackage{tikz-cd}
+%\usetikzlibrary{arrows,calc, angles ,patterns}
+
+\title{Lecture Notes} 
+
+\author{Konstantin Mark\\
+Projektive Geometrie\\ 
+\textsc{TU Wien}
+}
+
+
+
+\begin{document}
+\maketitle
+\begin{remark}
+Nachdem proj. Unterraum und Schnitt und Quadriken invariant sind unter projektiven Transformationen, ist neben $r$ auch $\ell$ projektiv invariant mit $Q$ verbunden.
+\end{remark}
+
+\begin{theorem}[Klassifikation reeller Quadriken]
+Zu jeder Quadrik in $P^n$ gibt es eine projektive Transformatio, sodass die abgebildete Quadrik die \begin{equation*}
+    x_0^2 + x_1^2 + \dots + x_{\ell+1}^2 - x_\ell^2 - \dots - x_{r-1}^2 = 0
+\end{equation*}
+hat, wobei $\ell , r$ eindeutig sind mit $\ell \geq r-\ell$.
+\end{theorem}
+\begin{definition}
+Die Anzahl der negativen Vorzeichen $s:= r-\ell$ heißt \textit{Index von $Q$}. Das Tripel $(\ell, s, n-\ell-s+1)$ heißt \textit{Signatur von $Q$}
+\end{definition}
+\begin{example}
+Die Kugel hat die Darstellung \begin{equation*}
+    -x_0^2 + x_1^2+x_2^2+x_3^2 = 0
+\end{equation*}
+oder in Normalform
+\begin{equation*}
+    x_0^2 + x_1^2+x_2^2-x_3^2 = 0
+\end{equation*}
+mit Signatur $(3,1,0)$ bzw. $(+++-)$.
+\end{example}
+\begin{example}
+Ein Kegel hat die Darstellung\begin{equation*}
+    x_1^2+x_2^2-x_3^2 = 0
+\end{equation*}
+oder in Normalform
+\begin{equation*}
+    x_0^2 + x_1^2-x_2^2+ 0 = 0
+\end{equation*}
+mit Signatur $(2,1,1)$ bzw. $(++-0)$.
+\end{example}
+\begin{remark}[Typen von \textbf{reellen} Quadriken]
+\begin{center}
+    \begin{tabular}{c|c|c|c|c}
+         n&Signatur&Gleichung&Symbol& Bezeichnung  \\ \hline \hline \hline
+         1& $(+0)$ &$x_0^2 = 0$&& Doppelpunkt\\\hline
+         &$(++)$&x_0^2+x_1^2 = 0 &&/\\
+         &$(+-)$&x_0^2-x_1^2 = 0&&Punktepaar\\\hline\hline
+         2&$(+00)$& x_0^2=0&& Doppelgerade\\
+         &$(++0)$&x_0^2+x_1^2= 0&& Doppelpunkt\\
+         &$(+-0)&x_0^2 -x_1^2 = 0&& Geradenpaar \\\hline
+         &$(+++)& x_0^2+x_1^2+x_2^2 = 0 && /\\
+         &$(++-)& x_0^2+x_1^2-x_2^2 = 0&& regulärer Kegelschnitt\\\hline\hline
+         3& $(+000)& x_0^2 = 0&&Doppelebene\\
+         &$(++00)&x_0^2+x_1^2 = 0&&Doppelgerade\\
+         &$(+-00)& x_0^2-x_1^2 = 0 && Ebenenpaar\\
+         &$(+++0)& x_0^2+x_1^2+x_2^2 = 0&& Doppelpunkt\\
+         &$(++-0)& x_0^2+x_1^2-x_2^2 = 0&& Kegel\\\hline
+         &$(++++)& x_0^2+x_1^2+x_2^2+x_3^2 = 0&& /\\
+         &$(+++-)&x_0^2+x_1^2+x_2^2-x_3^2 = 0 && Ovalquadrik\\
+         &$(++--)&x_0^2+x_1^2-x_2^2-x_3^2 = 0 && Ringquadrik\\\hline\hline
+         n & $(+0\dots0)& x_0 = 0&& Doppelhyperebene\\
+         &$(++0\dots0)&x_0^2+x_1^2 = 0 && Doppelhypergerade\\
+         &$(+-0\dots0)&x_0^2-x_1^2 = 0 && Hyperebenenpaar\\
+         &$(+\dots+0) & x_0^2 + \dots + x_{n-1}^2 = 0 && Doppelpunkt\\
+         &$(+\dots+-0)&x_0^2+\dots + x_{n-2}^2-x_{n-1}^2 = 0&& Hyperkegel\\\hline
+         &$(+\dots+)& x_0^2+\dots+x_n^2 = 0&\emptyset& /\\
+         &$(+\dots+-)&x_0^2+\dots+x_{n-1}^2-x_n^2 = 0 && Ovalquadrik\\
+         &$(+\dots+--)$&x_0^2+\dots+x_{n-2}^2-x_{n-1}^2-x_n^2 = 0 && Ringhyperquadrik
+    \end{tabular}
+\end{center}
+\end{remark}
+
+
+
+\end{document}
