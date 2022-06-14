@@ -1,7 +1,4 @@
-\documentclass[11pt]{article}
-\usepackage{ {util/personalmacros} }
-\usepackage{tikz-cd}
-%\usetikzlibrary{arrows,calc, angles ,patterns}
+\documentclass[../main.tex]{subfiles}
 
 \title{Lecture Notes} 
 
@@ -18,11 +15,86 @@ Projektive Geometrie\\
 \begin{equation}
   Q\dots, x^TAx = 0
 \end{equation}
-Wir können quadratische Matrizen $A\in \mathbb R^{(n+1)\times(n+1)}$ mit Vektoren im $\mathbb R^{(n+1)\cdot(n+1)}$ identifizieren z.B. $
+Wir können quadratische Matrizen $A\in \mathbb R^{(n+1)\times(n+1)}$ mit Vektoren im $\mathbb R^{(n+1)\cdot(n+1)}$ identifizieren z.B. $\left(\begin{array}{cc}
+     a&b  \\
+     c& d
+\end{array}\right)\leftrightarrow (a,b,c,d)^T$. 
 
-Basis für den Vektorraum der symmetrischen Matrizen
-
-
+Basis für den Vektorraum der symmetrischen Matrizen ist \begin{equation*}
+    \left(\begin{array}{cccc}
+         1&0&\dots 0  \\
+         0&\ddots&&\vdots\\
+         \vdots&&\ddots&\vdots\\
+         0&\dots&\dots&0
+    \end{array}\right),
+    \left(\begin{array}{cccc}
+        0&1&\dots 0  \\
+         1&\ddots&&\vdots\\
+         \vdots&&\ddots&\vdots\\
+         0&\dots&\dots&0
+    \end{array}\right),
+    \dots,
+    \left(\begin{array}{cccc}
+        0&0&\dots 0  \\
+         0&\ddots&&\vdots\\
+         \vdots&&\ddots&\vdots\\
+         0&\dots&\dots&1
+    \end{array}\right).
+\end{equation*}
+Das sind $\frac{(n+1)(n+2)}2$. D.h. der Vektorraum der symmetrischen Matrizen ist $\frac{(n+1)(n+2)}2$-dimensional.\\
+Symmetrische Matrizen $A$ beschreiben Quadriken. $\lambda A$ mit $\lambda \neq 0$ beschreibet die gleiche Quadrik wie $A$. Die Menge der Quadriken bildet also auch einen projektiven Raum der Dimension $\frac{(n+1)(n+2)}2-1 = \frac{n(n+3)}2$
 \end{remark}
+
+\begin{example}
+Der Projektive Raum der Kegelschnitte ist\begin{enumerate}
+    \item $P^2$:$\frac{2(2+3)}2 = 5$-dimensional
+    \item $P^3$: $\frac{3(3+3)}2 = 9$-dimensional.
+\end{enumerate} 
+\end{example}
+\begin{remark}
+Sei $X\in P^n$, $x^TAx = 0$ ist linear in $A$, die Gleichung beschreibt also eine Hyperebene im Raum der Quadriken.
+\end{remark}
+\begin{example}
+Im $P^2$: Die Menge aller Kegelschnitte durch inen festen Punkt ist eine Hyperebene im projektiven Raum der Quadriken.
+\end{example}
+
+\begin{theorem}
+Seien $P_1,\dots, P_k\in P^n$. Dann ist der Raum der Quadriken, die $P_1,\dots, P_k$ enthalten mindestens $(\frac{n(n+3)}2-k)$-dimensional.
+\end{theorem}
+\begin{proof}
+Die Dimension des Schnittes der $k$ Hyperebenen in $P^{\frac{n(n+3)}2$ ist mindestens $\frac{n(n+3)}2-k$.
+\end{proof}
+\begin{example}
+$P_1,\dots, P_5\in P^2$. Der Raum der Kegelschnitte, die $P_1,\dots, P_5$ enthalten ist mindestens $\frac{2(2+3)}{2}-5 = 0$-dimensional und es gibt mindestens einen Kegelschnitt, der die $5$ Punkte enthält.
+\end{example}
+\begin{example}
+Seien $G_1,G_2,G_3$ drei paarweise windschiefe Geraden in $P^3$. Wähle auf jeder Geraden $3$ paarweise verschiedene Punkte. Durch die insgesamt $9$ Punkte geht nun mindestens eine Quadrik. Wenn eine Quadrik $3$ Punkte einer Geraden enthält, so enthält sie aber die ganze Gerade. In $P^3$ gibt es also immer eine Quadrik, die $3$ windschiefe Geraden enthält (man nennt solche Quadriken \textit{Regulus})\\
+Alle Treffgeraden dieser $3$ Geraden liegen auch in der Quadrik. Die Quadrik besteht also aus zwei Scharen von Geraden. Ein Beispiel dafür ist das einschalige Drehhyperboloid.
+\end{example}
+\begin{definition}
+Die Menge der Quadriken, die durch eine Gerade im projektiven Raum der Quadriken beschrieben wird heißt \textit{Quadrikenbüschel}. Quadrikenbüschel können durch $\lambda A + \mu B$ beschrieben werden, wobei $A,B\in \mathbb R^{(n+1)\times(n+1)}$ zwei verschiedene Quadriken beschreiben. 
+\end{definition}
+\begin{definition}
+Seien $Q_1,Q_2$ zwei verschiedene Quadriken, beschrieben durch $A,B\in \mathbb R^{(n+1)\times(n+1)}$, $G\in Q_1\cap Q_2$ heißt Grundpunkt des Quadrikenbüschels, das von $Q_1$ und $Q_2$ aufgespannt wird.\\
+Grundpunkte liegen in jeder Quadrik des Büschels weil (mit $G=[g]$) $g^TAg = 0$ und $g^TBg = 0$ und damit $g^T(\lambda A+\mu B) = 0$. 
+\end{definition}
+\begin{theorem}
+Betrachte ein Quadrikenbüschel und $X$ ein Punkt, der kein Grundpunkt ist. Dann gibt es genau eine Quadrik des Büschels, die $X$ enthält.
+\end{theorem}
+\begin{proof}
+Sei $H$ die Hyperebene der Quadrik durch $X$ und $g$ die Gerade, die das Büschel festliegt. Angenommen $g\subseteq H$. Dann enthält jede Quadrik des Büschels den Punkt $X$, im Widerspruch dazu, dass $X$ kein Grundpunkt ist. Damit schneiten sich $g$ und $X$ in genau einem Punkt, welcher die gesuchte Quadrik beschreibt.
+\end{proof}
+\begin{remark}
+In einem Quadrikenbüschel können auch singuläre Quadriken liegen, nämlich genau dann wenn $\det(\lambda A +\mu B) = 0$. $\det(\lambda A +\mu B) = 0$ ist ein homogenes Polynom vom Grad $(n+1)$ in $\lambda, \mu$. Dieses Polynom kann auch das Nullpolynom sein. Dann wäre jede Quadrik des Bündels singulär.
+\end{remark}
+\begin{definition}
+Ein \textit{Kegelschnittsbüschel} ist ein Quadrikenbüschel in $P^2$. 
+\end{definition}
+\begin{theorem}
+Durch $5$ Punkte in $P^2$, von denen je $3$ nicht kollinear liegen gibt es genau einen Kegelschnitt. 
+\end{theorem}
+\begin{proof}
+Wähle $4$ der $5$ Punkte. $(P_1\lor P_3)\cup (P_2\lor P_4)$ ist ein singulärer Kegelschnitt $Q_1$. Ähnlich ist auch $(P_1\lor P_4)\cup (P_2\lor P_3)$ ein singulärer Kegelschnitt $Q_2$. $Q_1$ und Q_2 spannen ein Kegelschnittbüschel auf. Grundpunkte sind $P_1,\dots, P_4$. Aufgrun
+\end{proof}
 
 \end{document}
